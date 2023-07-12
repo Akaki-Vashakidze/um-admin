@@ -37,13 +37,44 @@ $my-primary: (
   ),
 );
 
+$my-accent:(
+  50:#1259aa,
+  100: #638bb9,
+  200: #638bb9,
+  300: #638bb9,
+  400: #638bb9,
+  500: #638bb9,
+  600: #638bb9,
+  700: #638bb9,
+  800: #638bb9,
+  900: #638bb9,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
 //the first two are the custom palettes we declared above
 $my-theme-primary: mat-palette($my-primary,100);
 // $my-theme-accent: mat-palette($my-accent);
 //the third, for the warn color, is the predefined material red palette
-$my-theme-warn: mat-palette($mat-red);
+$my-theme-warn: mat-palette($mat-red,900);
 
-$my-theme: mat-light-theme($my-theme-primary, $my-theme-warn);
+$my-theme-accent: mat-palette($my-accent,50);
+
+$my-theme: mat-light-theme($my-theme-primary, $my-theme-accent, $my-theme-warn);
 
 @include angular-material-theme($my-theme);
 

@@ -1,1 +1,15 @@
-<p>login works!</p>
+<div class="container">
+    <form class="form" [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="firstPart">
+            <div class="header">გაიარეთ ავტორიზაცია</div>
+            <div class="search">
+                <input formControlName="token" placeholder="შეიყვანეთ წვდომის ტოკენი" type="text" class="searchInput"
+                    name="search">
+                <mat-icon matPrefix class="searchIcon">account_circle</mat-icon>
+            </div>
+        </div>
+        <div class="buttonDiv">
+            <button mat-raised-button color="accent" type="submit">შესვლა</button>
+        </div>
+    </form>
+</div>
