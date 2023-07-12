@@ -1,0 +1,62 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./fonts.css";
+@import "../node_modules/@angular/material/theming";
+
+@include mat-core();
+
+$my-primary: (
+  50: #638bb9,
+  100: #638bb9,
+  200: #638bb9,
+  300: #638bb9,
+  400: #638bb9,
+  500: #638bb9,
+  600: #638bb9,
+  700: #638bb9,
+  800: #638bb9,
+  900: #638bb9,
+  A100: #638bb9,
+  A200: #638bb9,
+  A400: #638bb9,
+  A700: #638bb9,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+//the first two are the custom palettes we declared above
+$my-theme-primary: mat-palette($my-primary,100);
+// $my-theme-accent: mat-palette($my-accent);
+//the third, for the warn color, is the predefined material red palette
+$my-theme-warn: mat-palette($mat-red);
+
+$my-theme: mat-light-theme($my-theme-primary, $my-theme-warn);
+
+@include angular-material-theme($my-theme);
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+mat-icon {
+    cursor: pointer;
+}
+
