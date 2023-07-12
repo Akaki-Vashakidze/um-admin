@@ -3,9 +3,13 @@
         <div class="firstPart">
             <div class="header">გაიარეთ ავტორიზაცია</div>
             <div class="search">
-                <input formControlName="token" placeholder="შეიყვანეთ წვდომის ტოკენი" type="text" class="searchInput"
+                <input class="searchInput" [ngClass]="{'normalBorder': !loginForm.get('token')?.touched && !loginForm.get('token')?.errors?.['required'],'red': loginForm.get('token')?.touched && loginForm.get('token')?.errors?.['required']}" formControlName="token" placeholder="შეიყვანეთ წვდომის ტოკენი" type="text"
                     name="search">
                 <mat-icon matPrefix class="searchIcon">account_circle</mat-icon>
+                <mat-hint style="color:red;"
+                    *ngIf="loginForm.get('token')?.touched && loginForm.get('token')?.errors?.['required']">
+                    შეიყვანეთ წვდომის ტოკენი
+                </mat-hint>
             </div>
         </div>
         <div class="buttonDiv">
