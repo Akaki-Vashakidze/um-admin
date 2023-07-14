@@ -1,29 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomePageComponent } from './home-page/home-page.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { UmComponent } from './um.component';
+import { AuthGuard } from '../auth/guards/auth-guard.service';
 
 const routes: Routes = [
   {
     path: '',
     component: UmComponent,
+    canActivateChild:[AuthGuard],
     children: [
       {
         path: '',
-        redirectTo:'home',
+        redirectTo:'dashboard',
         pathMatch: 'full'
       },
       {
-        path:'home',
-        component: HomePageComponent
+        path:'dashboard',
+        component: DashboardComponent
       }
     ]
-  },
-
-  {
-    path: 'home',
-    pathMatch: 'full',
-    component: HomePageComponent
   }
 ]
 
