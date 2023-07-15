@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Observable, finalize, tap } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,14 +11,22 @@ export class TokenInterceptorService implements HttpInterceptor{
   constructor() { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler) : any {
+    if (req.url.indexOf('/api/') === 0) {
+      req = req.clone({
+        url: environment.apiUri + req.url.substr(4, req.url.length)
+      });
+    }
+
     let tokenizedRequest = req.clone({
       setHeaders: {
         authorization: 'Bearer ' + localStorage.getItem('x-access-token')
       }
     })
-    return next.handle(tokenizedRequest).pipe(tap(evt => {
+    
+    return next.handle(tokenizedRequest)
+    .pipe(tap(evt => {
       if (evt instanceof HttpResponse) {
-        const sessionToken = evt.headers.get('x-access-token');
+          const sessionToken = evt.headers.get('x-access-token');
         if (sessionToken) {
           localStorage.setItem('x-access-token', sessionToken)
         }
@@ -25,6 +34,7 @@ export class TokenInterceptorService implements HttpInterceptor{
     }),
     finalize(() => {
     
-    })).toPromise()
+    }))
+    // .toPromise()
   }
 }

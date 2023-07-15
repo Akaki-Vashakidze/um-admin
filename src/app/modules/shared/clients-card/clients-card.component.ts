@@ -7,5 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class ClientsComponent {
 @Input() cardTitle!:string;
-@Input() amount!:string;
+@Input() amount!:number;
 }

@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { UMModule } from './modules/um/um.module';
 import { UmRoutingModule } from './modules/um/um-routing.module';
 import { AuthModule } from './modules/auth/auth.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { AuthModule } from './modules/auth/auth.module';
     AppRoutingModule,
     UmRoutingModule,
     UMModule,
-    AuthModule
+    AuthModule,
+    HttpClientModule
   ],
   providers: [
     {
