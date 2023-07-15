@@ -11,5 +11,6 @@ export class UmService {
 
   async searchData() {
     return firstValueFrom(this._http.get("https://catfact.ninja/fact"))
+    // /v1/dashboard/statistics
   }
 }

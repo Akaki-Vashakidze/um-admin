@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-   apiUri: 'https://seahorse-app-ushaw.ondigitalocean.app',
+   apiUri: 'https://md-testing.cloud.gov.ge/um',
     // apiUri: 'http://localhost:8080'
 };
 
