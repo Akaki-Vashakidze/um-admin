@@ -5,17 +5,8 @@ import { AppsComponent } from './apps.component';
 const routes: Routes = [
   {
     path: '',
-    children: [
-      {
-        path: 'view',
-        redirectTo:'',
-        pathMatch: 'full'
-      },
-      {
-        path:'',
-        component: AppsComponent
-      }
-    ]
+    component:AppsComponent,
+    children: []
   },
 ]
 

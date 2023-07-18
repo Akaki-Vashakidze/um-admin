@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UmService } from '../service/um.service';
+import { UmService } from '../../service/um.service';
 
 @Component({
   selector: 'app-dashboard',

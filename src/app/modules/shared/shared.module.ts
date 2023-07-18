@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MaterialModule } from './material/material.module';
-import { HeaderComponent } from './header/header.component';
-import { ClientsComponent } from './data-count-card/data-count-card.component';
-import { SettingsCardComponent } from './settings-card/settings-card.component';
+import { MaterialModule } from './components/material/material.module';
+import { HeaderComponent } from './components/header/header.component';
+import { ClientsComponent } from './components/data-count-card/data-count-card.component';
+import { SettingsCardComponent } from './components/settings-card/settings-card.component';
 
 
 @NgModule({

@@ -5,12 +5,8 @@ import { ClientsComponent } from './clients.component';
 const routes: Routes = [
   {
     path: '',
-    children: [
-      {
-        path:'',
-        component: ClientsComponent
-      }
-    ]
+    component:ClientsComponent,
+    children: []
   },
 ]
 

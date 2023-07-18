@@ -5,15 +5,10 @@ import { UsersComponent } from './users.component';
 const routes: Routes = [
   {
     path: '',
-    children: [
-      {
-        path:'',
-        component: UsersComponent
-      }
-    ]
+    component:UsersComponent,
+    children: []
   },
 ]
-
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
