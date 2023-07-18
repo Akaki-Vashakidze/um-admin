@@ -10,7 +10,7 @@ export class UmService {
   constructor(private _http:HttpClient) { }
 
   async searchData() {
-    return firstValueFrom(this._http.get("https://catfact.ninja/fact"))
+    return firstValueFrom(this._http.get("/um/api/v1/dashboard/statistics"))
     // /v1/dashboard/statistics
   }
 }

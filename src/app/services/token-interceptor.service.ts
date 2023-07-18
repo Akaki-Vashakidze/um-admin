@@ -12,15 +12,15 @@ export class TokenInterceptorService implements HttpInterceptor {
   constructor(private _router: Router) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): any {
-    if (req.url.indexOf('/api/') === 0) {
+    if (req.url.indexOf('/um/api/') === 0) {
       req = req.clone({
-        url: environment.apiUri + req.url.substr(4, req.url.length)
+        url: environment.apiUri + req.url.substr(7, req.url.length)
       });
     }
-
+    
     let tokenizedRequest = req.clone({
       setHeaders: {
-        authorization: 'Bearer ' + localStorage.getItem('x-access-token')
+        'x-access-token': localStorage.getItem('x-access-token') || ''
       }
     })
 
