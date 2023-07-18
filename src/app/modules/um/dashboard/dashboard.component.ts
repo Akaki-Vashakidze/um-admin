@@ -14,9 +14,10 @@ export class DashboardComponent implements OnInit {
 
   async ngOnInit() {
     let result = await this._umService.searchData()
-    console.log(result)
     if (result) {
-
+      this.apps = result.result.data.appCount
+      this.clients = result.result.data.clientCount
+      this.users = result.result.data.userCount
     }
   }
 }
