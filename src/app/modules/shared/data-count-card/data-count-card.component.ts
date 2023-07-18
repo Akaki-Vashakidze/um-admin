@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-clients',
-  templateUrl: './clients-card.component.html',
-  styleUrls: ['./clients-card.component.scss']
+  selector: 'app-data-count-card',
+  templateUrl: './data-count-card.component.html',
+  styleUrls: ['./data-count-card.component.scss']
 })
 export class ClientsComponent {
 @Input() cardTitle!:string;

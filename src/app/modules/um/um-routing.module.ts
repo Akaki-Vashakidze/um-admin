@@ -16,6 +16,18 @@ const routes: Routes = [
         pathMatch: 'full'
       },
       {
+        path: 'apps',
+        loadChildren: () => import('./modules/apps/apps.module').then(m => m.AppsModule)
+      },
+      {
+        path: 'clients',
+        loadChildren: () => import('./modules/clients/clients.module').then(m => m.ClientsModule)
+      },
+      {
+        path: 'users',
+        loadChildren: () => import('./modules/users/user.module').then(m => m.UsersModule)
+      },
+      {
         path:'dashboard',
         component: DashboardComponent
       }
