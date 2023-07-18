@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ export class LoginComponent implements OnInit {
 
   loginForm!: FormGroup;
 
-  constructor() { }
+  constructor(private _router: Router) { }
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -19,6 +20,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    console.log(this.loginForm.value)
+    localStorage.setItem('x-access-token', this.loginForm.get('token')?.value)
+    this._router.navigate(['dashboard'])
   }
 }

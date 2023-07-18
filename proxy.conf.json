@@ -1,10 +1,10 @@
 {
-  "/um/api": {
+  "/api": {
     "target": "https://md-testing.cloud.gov.ge",
     "secure": true,
     "changeOrigin": true,
     "pathRewrite":{
-      "^/um/api": ""
+      "^/api": ""
     }
   }
 }

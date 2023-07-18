@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Observable, catchError, finalize, tap, throwError } from 'rxjs';
-import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -12,11 +11,6 @@ export class TokenInterceptorService implements HttpInterceptor {
   constructor(private _router: Router) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): any {
-    if (req.url.indexOf('/um/api/') === 0) {
-      req = req.clone({
-        url: environment.apiUri + req.url.substr(7, req.url.length)
-      });
-    }
     
     let tokenizedRequest = req.clone({
       setHeaders: {

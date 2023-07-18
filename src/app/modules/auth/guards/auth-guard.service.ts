@@ -29,7 +29,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     isAuthorized() {
         let item : any = localStorage.getItem('x-access-token')
         //uncomment to check if works
-        item = true;
+        // item = true;
         if (item) {
             return true;
         }

@@ -74,7 +74,16 @@ $my-theme-warn: mat-palette($mat-red,900);
 
 $my-theme-accent: mat-palette($my-accent,50);
 
-$my-theme: mat-light-theme($my-theme-primary, $my-theme-accent, $my-theme-warn);
+$my-theme: mat-light-theme(
+  (
+        color: (
+          primary: $my-theme-primary,
+          accent: $my-theme-accent,
+          warn: $my-theme-warn
+        ),
+        density: 0,
+       )
+       ); 
 
 @include angular-material-theme($my-theme);
 
