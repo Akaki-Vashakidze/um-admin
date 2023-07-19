@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UmService } from '../../service/um.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,7 +11,7 @@ export class DashboardComponent implements OnInit {
   apps!: number
   clients!: number
   users!: number
-  constructor(private _umService: UmService) { }
+  constructor(private _umService: UmService, private _router:Router) { }
 
   async ngOnInit() {
     let result = await this._umService.searchData()
@@ -20,4 +21,11 @@ export class DashboardComponent implements OnInit {
       this.users = result.result.data.userCount
     }
   }
+
+  openList(listType:string){
+    listType == 'apps' && this._router.navigate(['list/apps'])
+    listType == 'users' && this._router.navigate(['list/users'])
+    listType == 'clients' && this._router.navigate(['list/clients'])
+  }
+
 }

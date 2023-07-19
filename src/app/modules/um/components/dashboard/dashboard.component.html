@@ -1,9 +1,9 @@
 <div class="mainContainer">
-    <div class="firstContainer">
+    <div  class="firstContainer">
         <div class="clients">
-            <app-data-count-card [amount]="apps" [cardTitle]="'აპლიკაციები'"></app-data-count-card>
-            <app-data-count-card [amount]="clients" [cardTitle]="'კლიენტები'"></app-data-count-card>
-            <app-data-count-card [amount]="users" [cardTitle]="'მომხმარებლები'"></app-data-count-card>
+            <app-data-count-card (click)="openList('apps')" [amount]="apps" [cardTitle]="'აპლიკაციები'"></app-data-count-card>
+            <app-data-count-card (click)="openList('clients')" [amount]="clients" [cardTitle]="'კლიენტები'"></app-data-count-card>
+            <app-data-count-card (click)="openList('users')" [amount]="users" [cardTitle]="'მომხმარებლები'"></app-data-count-card>
         </div>
     </div>
     <div class="hr"></div>

@@ -4,13 +4,15 @@ import { MaterialModule } from './components/material/material.module';
 import { HeaderComponent } from './components/header/header.component';
 import { ClientsComponent } from './components/data-count-card/data-count-card.component';
 import { SettingsCardComponent } from './components/settings-card/settings-card.component';
+import { ListComponent } from './components/list/list.component';
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
     ClientsComponent,
-    SettingsCardComponent
+    SettingsCardComponent,
+    ListComponent,
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,7 @@ import { SettingsCardComponent } from './components/settings-card/settings-card.
     MaterialModule,
     HeaderComponent,
     ClientsComponent,
-    SettingsCardComponent
+    SettingsCardComponent,
   ]
 })
 export class SharedModule { }

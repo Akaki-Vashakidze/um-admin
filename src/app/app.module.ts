@@ -8,12 +8,14 @@ import { UMModule } from './modules/um/um.module';
 import { UmRoutingModule } from './modules/um/um-routing.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
     UmRoutingModule,

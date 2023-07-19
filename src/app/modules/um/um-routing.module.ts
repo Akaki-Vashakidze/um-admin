@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { UmComponent } from './um.component';
 import { AuthGuard } from '../auth/guards/auth-guard.service';
+import { ListComponent } from '../shared/components/list/list.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,10 @@ const routes: Routes = [
       {
         path:'dashboard',
         component: DashboardComponent
+      },
+      {
+        path:'list/:id',
+        component: ListComponent
       }
     ]
   }
