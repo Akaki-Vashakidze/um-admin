@@ -4,6 +4,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { UmComponent } from './um.component';
 import { AuthGuard } from '../auth/guards/auth-guard.service';
 import { ListComponent } from '../shared/components/list/list.component';
+import { ReusableTableComponent } from '../shared/components/reusable-table/reusable-table.component';
 
 const routes: Routes = [
   {
@@ -33,8 +34,9 @@ const routes: Routes = [
         component: DashboardComponent
       },
       {
-        path:'list/:id',
-        component: ListComponent
+        path:'list/:type',
+        component: ListComponent,
+        children:[{path:':data',component:ReusableTableComponent}]
       }
     ]
   }

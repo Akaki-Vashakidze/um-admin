@@ -5,6 +5,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { ClientsComponent } from './components/data-count-card/data-count-card.component';
 import { SettingsCardComponent } from './components/settings-card/settings-card.component';
 import { ListComponent } from './components/list/list.component';
+import { ReusableTableComponent } from './components/reusable-table/reusable-table.component';
+import { UmRoutingModule } from '../um/um-routing.module';
 
 
 @NgModule({
@@ -13,10 +15,12 @@ import { ListComponent } from './components/list/list.component';
     ClientsComponent,
     SettingsCardComponent,
     ListComponent,
+    ReusableTableComponent,
   ],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    UmRoutingModule
   ],
   exports:[
     MaterialModule,
