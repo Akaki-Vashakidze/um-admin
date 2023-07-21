@@ -23,29 +23,27 @@ export class ListComponent implements OnInit {
     {
       columnDef: 'ID',
       header: 'ID',
-      cell: (element: Record<string, any>) => `${element['ID']}`
+      cell: (item: Record<string, any>) => `${item['ID']}`
     },
     {
       columnDef: 'სახელი',
       header: 'სახელი',
-      cell: (element: Record<string, any>) => `${element['name']}`,
-      isLink: true,
-      url: 'abc'
+      cell: (item: Record<string, any>) => `${item['name']}`
     },
     {
       columnDef: 'აღწერა',
       header: 'აღწერა',
-      cell: (element: Record<string, any>) => `${element['description']}`
+      cell: (item: Record<string, any>) => `${item['description']}`
     },
     {
       columnDef: 'keyword',
       header: 'keyword',
-      cell: (element: Record<string, any>) => `${element['keyword']}`
+      cell: (item: Record<string, any>) => `${item['keyword']}`
     },
     {
       columnDef: 'actions',
       header: 'actions',
-      cell: (element: Record<string, any>) => `${element['actions']}`
+      cell: (item: Record<string, any>) => `${item['actions']}`
     }
   ];
 
@@ -60,12 +58,11 @@ export class ListComponent implements OnInit {
     {ID: 8, name: 'name8', description: 'description' , keyword: 'O', actions: 'H'},
     {ID: 9, name: 'name9', description: 'description' , keyword: 'F', actions: 'H'},
     {ID: 10, name: 'name10', description: 'description' , keyword: 'N', actions: 'H'},
-  ];
+  ]; 
 
 
   ngOnInit(): void {
     this.dataType = this._activatedRoute.snapshot.params['type']
-    console.log(this.dataType)
     if (this.dataType == 'apps') {
       this.listData = this.apps
       this.type = 'აპლიკაცია'
