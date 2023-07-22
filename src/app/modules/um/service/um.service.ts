@@ -13,4 +13,15 @@ export class UmService {
   async searchData() {
     return firstValueFrom<DashboardResponce>(this._http.get<DashboardResponce>("/api/um/v1/dashboard/statistics"))
   }
+
+  async getAppsList(item:any,paging:any) {
+    let data = {'data':item,'paging':paging}
+    return firstValueFrom<any>(this._http.post<any>("/api/um/v1/applications/search",data))
+  }
+
+  async getAppClients(item:any,paging:any) {
+    let data = {'data':item,'paging':paging}
+    return firstValueFrom<any>(this._http.post<any>("/api/um/v1/applications/clients/search",data))
+  }
+
 }

@@ -12,17 +12,17 @@
             <p>{{'დაამატე ახალი ' + type}}</p>
         </div>
         <div class="appsList">
-            <div class="app" *ngFor="let app of listData" (click)="openTable()">
-              <p>{{app}}</p>
+            <div class="app" *ngFor="let item of listData" (click)="openTable()">
+              <p (click)="getClients(item.id,0,10)">{{item.name}}</p>
               <span><mat-icon class="morevertIcon">more_vert</mat-icon></span>
             </div>
           </div>
     </mat-card>
     <mat-card class="card2">
-        <mat-icon class="clickSearch">search</mat-icon>
-        <div class="clickClient">აპლიკაციის სანახავად გთხოვთ მონიშნოთ ერთი კლიენტი</div>
+        <mat-icon *ngIf="!tableData" class="clickSearch">search</mat-icon>
+        <div  *ngIf="!tableData" class="clickClient">აპლიკაციის სანახავად გთხოვთ მონიშნოთ ერთი კლიენტი</div>
         <!-- <router-outlet></router-outlet> -->
-        <app-reusable-table   [tableColumns]="tableColumns"
+        <app-reusable-table [pageSizeOptions]="pageSizeOptions" (pageChange)="pageChange($event)" [paging]="paging" [tableHeaders]="tableHeaders" [tableColumns]="tableColumns"
         [tableData]="tableData"></app-reusable-table>
     </mat-card>
 </div>

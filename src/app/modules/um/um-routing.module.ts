@@ -36,7 +36,6 @@ const routes: Routes = [
       {
         path:'list/:type',
         component: ListComponent,
-        children:[{path:':data',component:ReusableTableComponent}]
       }
     ]
   }
