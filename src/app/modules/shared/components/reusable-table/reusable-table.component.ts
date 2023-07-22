@@ -15,6 +15,7 @@ export class ReusableTableComponent implements OnInit, AfterViewInit, OnChanges 
   @Input() paging!: { length: number, pageSize: number, pageIndex: number };
   @Input() pageSizeOptions: number[] = [];
   @Output() pageChange: EventEmitter<{ length: number, pageSize: number, pageIndex: number }> = new EventEmitter();
+  @Output() search: EventEmitter<any> = new EventEmitter();
   dataSource: MatTableDataSource<any> = new MatTableDataSource();
 
 
@@ -34,5 +35,9 @@ export class ReusableTableComponent implements OnInit, AfterViewInit, OnChanges 
 
   page(e: any) {
     this.pageChange.emit(e);
+  }
+
+  filter(item:any){
+    this.search.emit(item);
   }
 }

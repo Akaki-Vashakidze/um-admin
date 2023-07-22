@@ -25,6 +25,7 @@ export class ListComponent implements OnInit {
   pageSizeOptions = [3, 5, 10]
   tableData: any;
   id!: string;
+  searchQuery:string = ''
 
   async ngOnInit() {
 
@@ -46,16 +47,21 @@ export class ListComponent implements OnInit {
     // this._router.navigate(['/list/' + this.dataType + '/table'])
   }
 
-  async getClients(id: string, page: number, size: number) {
+  async getClients(id: string, page: number, size: number, searchQuery:string) {
     this.id = id;
-    let response = await this._umService.getAppClients({ applicationId: id }, { 'page': page, 'size': size })
+    let response = await this._umService.getAppClients({ applicationId: id ,searchQuery:searchQuery }, { 'page': page, 'size': size })
     this.tableData = response.result.data
     this.paging.length = this.tableData.length
+  }
+
+  search(item:any){
+    let searchQuery = item.value
+    this.getClients(this.id,this.paging.pageIndex,this.paging.pageSize,searchQuery)
   }
 
   pageChange(ev: PageEvent) {
     this.paging.pageIndex = ev.pageIndex;
     this.paging.pageSize = ev.pageSize;
-    this.getClients(this.id, this.paging.pageIndex, this.paging.pageSize)
+    this.getClients(this.id, this.paging.pageIndex, this.paging.pageSize,this.searchQuery)
   }
 }
