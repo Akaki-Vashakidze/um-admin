@@ -20,7 +20,6 @@ const routes: Routes = [
         component: DashboardComponent,
         data: { breadcrumb: { alias: 'Dashboard' } }
       },
-
       {
         path: 'clients',
         loadChildren: () => import('../um/modules/clients/clients.module').then(m => m.ClientsModule),
@@ -34,7 +33,7 @@ const routes: Routes = [
       {
         path: 'apps',
         loadChildren: () => import('../um/modules/applications/applications.module').then(m => m.ApplicationsModule),
-        // data: { breadcrumb: { skip: true } }
+         data: { breadcrumb: { alias: 'App' } },
       },
     ]
   }

@@ -7,7 +7,11 @@ const routes: Routes = [
     path: '',
     component: ApplicationsComponent,
     children: [
-      { path: 'clients/:applicationId', component: ApplicationClientsComponent }
+      {
+        path: 'clients/:applicationId',
+        component: ApplicationClientsComponent,
+        data: { breadcrumb: { alias: 'Apps' } }
+      }
     ]
   }
 ];

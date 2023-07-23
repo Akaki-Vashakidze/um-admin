@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute } from '@angular/router';
 import { UmService } from 'src/app/modules/um/service/um.service';
+import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
   selector: 'app-application-clients',
@@ -25,7 +26,8 @@ export class ApplicationClientsComponent implements OnInit {
       size: 10
     }
   }
-  constructor(private _umService: UmService, private _activatedRoute: ActivatedRoute) {
+
+  constructor(private breadcrumbService: BreadcrumbService,private _umService: UmService, private _activatedRoute: ActivatedRoute) {
     this._activatedRoute.params.subscribe((param: any) => {
       if (param.applicationId) {
         this.requestBody.data.applicationId = param.applicationId;
@@ -35,7 +37,7 @@ export class ApplicationClientsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+    this.breadcrumbService.set('@Apps','აპლიკაციის კლიენტები');
   }
 
   async getClients() {
