@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
   selector: 'app-apps',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./apps.component.scss']
 })
 export class AppsComponent implements OnInit {
+  constructor(private breadcrumbService: BreadcrumbService){}
   ngOnInit(): void {
+    this.breadcrumbService.set('@Dash',' Dash');
   }
 }

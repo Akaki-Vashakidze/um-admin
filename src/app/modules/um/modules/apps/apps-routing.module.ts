@@ -7,12 +7,19 @@ const routes: Routes = [
   {
     path: '',
     component:AppsComponent,
+    data: { breadcrumb: { skip: true } },
     children: [
       {
         path:'',
         redirectTo:'red',
         pathMatch:'full'
+      },
+      {
+        path:'dash',
+        component:DashboardComponent,
+        data: { breadcrumb: {alias: 'Dash'} }
       }
+
     ]
   }
 ]
