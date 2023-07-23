@@ -7,6 +7,7 @@ import { SettingsCardComponent } from './components/settings-card/settings-card.
 import { ListComponent } from './components/list/list.component';
 import { ReusableTableComponent } from './components/reusable-table/reusable-table.component';
 import { UmRoutingModule } from '../um/um-routing.module';
+import { ClientsAppsComponent } from './components/clients-apps/clients-apps.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { UmRoutingModule } from '../um/um-routing.module';
     SettingsCardComponent,
     ListComponent,
     ReusableTableComponent,
+    ClientsAppsComponent,
   ],
   imports: [
     CommonModule,
@@ -27,6 +29,8 @@ import { UmRoutingModule } from '../um/um-routing.module';
     HeaderComponent,
     ClientsComponent,
     SettingsCardComponent,
+    ClientsAppsComponent,
+    ReusableTableComponent
   ]
 })
 export class SharedModule { }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppsClientsType } from 'src/app/modules/shared/classes/enums';
 
 @Component({
   selector: 'app-clients',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class ClientsComponent {
 
+  constructor() {
+
+  }
+
+
+  get type() {
+    return AppsClientsType.CLIENTS
+  }
 }

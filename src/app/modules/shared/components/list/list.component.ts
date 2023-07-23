@@ -42,17 +42,17 @@ export class ListComponent implements OnInit {
       this.type = 'მომხმარებელი'
     }
 
-    this.breadcrumbService.set('@List', this.dataType + ' List');
+    // this.breadcrumbService.set('@List', this.dataType + ' List');
   }
   openTable() {
     // this._router.navigate(['/list/' + this.dataType + '/table'])
   }
 
   async getClients(id: string, page: number, size: number, searchQuery:string) {
-    this.id = id;
-    let response = await this._umService.getAppClients({ applicationId: id ,searchQuery:searchQuery }, { 'page': page, 'size': size })
-    this.tableData = response.result.data
-    this.paging.length = this.tableData.length
+    // this.id = id;
+    // let response = await this._umService.getAppClients({ applicationId: id ,searchQuery:searchQuery }, { 'page': page, 'size': size })
+    // this.tableData = response.result.data
+    // this.paging.length = this.tableData.length
   }
 
   search(item:any){

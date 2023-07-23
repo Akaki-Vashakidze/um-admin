@@ -25,9 +25,9 @@ export class DashboardComponent implements OnInit {
   }
 
   openList(listType:string){
-    listType == 'apps' && this._router.navigate(['list/apps'])
-    listType == 'users' && this._router.navigate(['list/users'])
-    listType == 'clients' && this._router.navigate(['list/clients'])
+    listType == 'apps' && this._router.navigate(['/um/apps'])
+    listType == 'users' && this._router.navigate(['/um/users'])
+    listType == 'clients' && this._router.navigate(['/um/clients'])
   }
 
 }

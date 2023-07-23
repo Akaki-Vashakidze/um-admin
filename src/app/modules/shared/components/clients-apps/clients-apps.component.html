@@ -1,0 +1,21 @@
+<div class="container">
+    <mat-card class="card1">
+        <div class="search">
+            <mat-form-field>
+                <mat-icon matPrefix class="searchIcon">search</mat-icon>
+                <input [placeholder]="'მოძებნე ' + type" matInput name="search">
+                <mat-icon class="sortIcon" matSuffix>sort</mat-icon>
+            </mat-form-field>
+        </div>
+        <div class="addGroup">
+            <mat-icon>add</mat-icon>
+            <p>{{'დაამატე ახალი ' + type}}</p>
+        </div>
+        <div class="appsList">
+            <div class="app" *ngFor="let item of listData" (click)="openTable(item.value)">
+                <p>{{item.title}}</p>
+                <span><mat-icon class="morevertIcon">more_vert</mat-icon></span>
+            </div>
+        </div>
+    </mat-card>
+</div>
