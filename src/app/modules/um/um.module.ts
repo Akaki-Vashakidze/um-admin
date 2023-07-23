@@ -4,6 +4,7 @@ import { SharedModule } from '../shared/shared.module';
 import { DashboardComponent} from './components/dashboard/dashboard.component';
 import { UmRoutingModule } from './um-routing.module';
 import { UmComponent } from './um.component';
+import { BreadcrumbModule } from 'xng-breadcrumb';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { UmComponent } from './um.component';
   imports: [
     UmRoutingModule,
     CommonModule,
-    SharedModule
+    SharedModule,
+    BreadcrumbModule
   ],
   exports:[
     SharedModule

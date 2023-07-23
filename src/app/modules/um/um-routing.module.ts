@@ -4,38 +4,28 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { UmComponent } from './um.component';
 import { AuthGuard } from '../auth/guards/auth-guard.service';
 import { ListComponent } from '../shared/components/list/list.component';
-import { ReusableTableComponent } from '../shared/components/reusable-table/reusable-table.component';
 
 const routes: Routes = [
   {
     path: '',
     component: UmComponent,
     canActivateChild:[AuthGuard],
+    data: { breadcrumb: {alias: 'um'} },
     children: [
       {
-        path: '',
+        path:'',
         redirectTo:'dashboard',
-        pathMatch: 'full'
-      },
-      {
-        path: 'apps',
-        loadChildren: () => import('./modules/apps/apps.module').then(m => m.AppsModule)
-      },
-      {
-        path: 'clients',
-        loadChildren: () => import('./modules/clients/clients.module').then(m => m.ClientsModule)
-      },
-      {
-        path: 'users',
-        loadChildren: () => import('./modules/users/user.module').then(m => m.UsersModule)
+        pathMatch:'full'
       },
       {
         path:'dashboard',
-        component: DashboardComponent
+        component: DashboardComponent,
+        data: { breadcrumb: {alias: 'Dashboard'} }
       },
       {
         path:'list/:type',
         component: ListComponent,
+        data: { breadcrumb: {alias: 'List'} }
       }
     ]
   }

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/app/modules/shared/shared.module';
 import { AppsComponent } from './apps.component';
 import { AppsRoutingModule } from './apps-routing.module';
-
+import { BreadcrumbModule } from 'xng-breadcrumb';
 
 @NgModule({
   declarations: [
@@ -12,7 +12,8 @@ import { AppsRoutingModule } from './apps-routing.module';
   imports: [
     CommonModule,
     SharedModule,
-    AppsRoutingModule
+    AppsRoutingModule,
+    BreadcrumbModule
   ],
   bootstrap: [AppsComponent]
 })

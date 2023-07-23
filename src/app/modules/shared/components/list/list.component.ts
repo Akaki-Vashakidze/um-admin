@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UmService } from 'src/app/modules/um/service/um.service';
+import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
   selector: 'app-list',
@@ -16,7 +17,7 @@ export class ListComponent implements OnInit {
   columns = ['id', 'სახელი', 'აღწერა', 'keyword', 'actions']
   listData: any;
 
-  constructor(private _umService: UmService, private _activatedRoute: ActivatedRoute, private _router: Router) { }
+  constructor(private breadcrumbService: BreadcrumbService,private _umService: UmService, private _activatedRoute: ActivatedRoute, private _router: Router) { }
   dataType!: string;
   type!: string;
   paging = { length: 5, pageSize: 10, pageIndex: 0 }
@@ -28,9 +29,7 @@ export class ListComponent implements OnInit {
   searchQuery:string = ''
 
   async ngOnInit() {
-
     this.dataType = this._activatedRoute.snapshot.params['type']
-
     if (this.dataType == 'apps') {
       let response = await this._umService.getAppsList({}, { 'page': this.paging.pageIndex, 'size': this.paging.pageSize })
       this.listData = response.result.data
@@ -42,6 +41,8 @@ export class ListComponent implements OnInit {
       this.listData = this.users
       this.type = 'მომხმარებელი'
     }
+
+    this.breadcrumbService.set('@List', this.dataType + ' List');
   }
   openTable() {
     // this._router.navigate(['/list/' + this.dataType + '/table'])

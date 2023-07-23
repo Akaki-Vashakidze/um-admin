@@ -9,6 +9,8 @@ import { UmRoutingModule } from './modules/um/um-routing.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BreadcrumbModule } from 'xng-breadcrumb';
+import { BreadcrumbService } from 'xng-breadcrumb';
 
 @NgModule({
   declarations: [
@@ -21,9 +23,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     UmRoutingModule,
     UMModule,
     AuthModule,
-    HttpClientModule
+    HttpClientModule,
+    BreadcrumbModule
   ],
   providers: [
+    BreadcrumbService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,

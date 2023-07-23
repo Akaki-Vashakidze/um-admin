@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UmService } from '../../service/um.service';
 import { Router } from '@angular/router';
+import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,9 +12,10 @@ export class DashboardComponent implements OnInit {
   apps!: number
   clients!: number
   users!: number
-  constructor(private _umService: UmService, private _router:Router) { }
+  constructor(  private breadcrumbService: BreadcrumbService ,private _umService: UmService, private _router:Router) { }
 
   async ngOnInit() {
+    this.breadcrumbService.set('@Dashboard', 'Dashboard');
     let result = await this._umService.searchData()
     if (result) {
       this.apps = result.result.data.appCount
