@@ -6,11 +6,11 @@ import { BreadcrumbService } from 'xng-breadcrumb';
   templateUrl: './um.component.html',
   styleUrls: ['./um.component.scss']
 })
-export class UmComponent implements OnInit{
-constructor(private breadcrumbService: BreadcrumbService){
-}
+export class UmComponent implements OnInit {
+  constructor(private breadcrumbService: BreadcrumbService) {
+  }
 
-ngOnInit(): void {
-  this.breadcrumbService.set('@um',' UM');
-}
+  ngOnInit(): void {
+    this.breadcrumbService.set('@um', ' UM');
+  }
 }

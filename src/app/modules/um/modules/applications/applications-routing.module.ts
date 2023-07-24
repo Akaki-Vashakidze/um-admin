@@ -2,16 +2,22 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ApplicationsComponent } from './applications.component';
 import { ApplicationClientsComponent } from './components/application-clients/application-clients.component';
+
 const routes: Routes = [
   {
     path: '',
     component: ApplicationsComponent,
     children: [
       {
-        path: 'clients/:applicationId',
+        path:'',
+        redirectTo:'applications/emptyCard',
+        pathMatch:'full',
+      },
+      {
+        path: 'applications/:clientId',
         component: ApplicationClientsComponent,
         data: { breadcrumb: { alias: 'Apps' } }
-      }
+      },
     ]
   }
 ];

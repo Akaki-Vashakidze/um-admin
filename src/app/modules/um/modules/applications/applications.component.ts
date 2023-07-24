@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { AppsClientsType } from 'src/app/modules/shared/classes/enums';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
@@ -8,15 +8,11 @@ import { BreadcrumbService } from 'xng-breadcrumb';
   styleUrls: ['./applications.component.scss']
 })
 export class ApplicationsComponent implements OnInit {
-
-  constructor(private breadcrumbService: BreadcrumbService,) {
-
-  }
+  constructor(private breadcrumbService: BreadcrumbService,) { }
 
   ngOnInit(): void {
     this.breadcrumbService.set('@App','აპლიკაციები');
   }
-
   get type() {
     return AppsClientsType.APPS;
   }

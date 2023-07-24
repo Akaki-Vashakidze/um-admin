@@ -5,7 +5,8 @@
 }
 
 .container {
-    width: 400px;
+    width: 300px;
+    height: 100%;
 //     position: relative;
 //     top: 0px;
 //     left: 50%;
@@ -23,40 +24,10 @@
  border: 1px solid rgb(233, 233, 233);
 }
 
-.card2 {
- height: 100%;
- border: 1px solid rgb(233, 233, 233);
-}
-
 ::ng-deep .mat-form-field-underline {
     display: none;
 }
 
-.clickClient {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 700px;
-    transform: translate(-50%,0);
-    text-align: center;
-    font-family: 'Noto Sans Georgian SemCond ExtBd';
-    font-size: 20px;
-    color: #e1dede;
-    opacity: 0.5;
-}
-
-.clickSearch {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 700px;
-    transform: translate(-50%,-50%);
-    font-size: 250px;
-    height: 240px;
-    width: 240px;
-    color: rgb(226, 221, 221);
-    opacity: 0.3;
-}
 
 // ::ng-deep .mat-form-field-flex {
 //     padding: 0 10px;

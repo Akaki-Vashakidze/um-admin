@@ -21,7 +21,6 @@ export class UmService {
     return firstValueFrom<any>(this._http.post<any>("/api/um/v1/applications/search", data)
       .pipe(map(res => {
         if (res.result) {
-
           return res.result
         } else return null;
       }), finalize(() => {
@@ -30,10 +29,8 @@ export class UmService {
   }
 
   async getAppClients(requestBody: any) {
-
     return firstValueFrom<any>(this._http.post<any>("/api/um/v1/applications/clients/search", requestBody).pipe(map(res => {
       if (res.result) {
-
         return res.result
       } else return null;
     }), finalize(() => {

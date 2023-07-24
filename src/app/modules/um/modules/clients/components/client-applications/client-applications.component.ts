@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UmService } from '../../../service/um.service';
+import { UmService } from '../../../../service/um.service';
 import { PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute, Router } from '@angular/router';
 

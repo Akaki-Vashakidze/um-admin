@@ -1,7 +1,7 @@
 <mat-card class="card2">
     <mat-icon *ngIf="!tableData" class="clickSearch">search</mat-icon>
-    <div  *ngIf="!tableData" class="clickClient">აპლიკაციის სანახავად გთხოვთ მონიშნოთ ერთი კლიენტი</div>
+    <div *ngIf="!tableData" class="clickClient">კლიენტების სანახავად სანახავად გთხოვთ მონიშნოთ ერთი აპლიკაცია</div>
     <!-- <router-outlet></router-outlet> -->
-    <app-reusable-table [pageSizeOptions]="pageSizeOptions" (search)="search($event)" (pageChange)="pageChange($event)" [paging]="paging" [tableHeaders]="tableHeaders" [tableColumns]="tableColumns"
+    <app-reusable-table *ngIf="tableData" [pageSizeOptions]="pageSizeOptions" (search)="search($event)" (pageChange)="pageChange($event)" [paging]="paging" [tableHeaders]="tableHeaders" [tableColumns]="tableColumns"
     [tableData]="tableData"></app-reusable-table>
 </mat-card>

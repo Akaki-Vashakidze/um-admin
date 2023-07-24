@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/app/modules/shared/shared.module';
 import { ClientsComponent } from './clients.component';
 import { ClientsRoutingModule } from './clients-routing.module';
-import { ClientApplicationsComponent } from './client-applications/client-applications.component';
+import { ClientApplicationsComponent } from './components/client-applications/client-applications.component';
 
 
 @NgModule({

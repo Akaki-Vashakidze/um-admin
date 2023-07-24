@@ -1,3 +1,6 @@
 <app-header [UsernameAndSearch]="true"></app-header>
-<xng-breadcrumb></xng-breadcrumb>
+<xng-breadcrumb [separator]="iconTemplate"></xng-breadcrumb>
+<ng-template #iconTemplate>
+    <mat-icon>navigate_next</mat-icon>
+  </ng-template>
 <router-outlet></router-outlet>

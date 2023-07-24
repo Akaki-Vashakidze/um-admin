@@ -47,11 +47,11 @@ export class ClientsAppsComponent implements OnInit {
   openTable(value: number) {
     switch (this.type) {
       case AppsClientsType.APPS: {
-        this._router.navigate([`clients/${value}`], { relativeTo: this._activatedRoute })
+        this._router.navigate([`applications/${value}`], { relativeTo: this._activatedRoute })
       } break;
 
       case AppsClientsType.CLIENTS: {
-        this._router.navigate([`applications/${value}`], { relativeTo: this._activatedRoute })
+        this._router.navigate([`clients/${value}`], { relativeTo: this._activatedRoute })
       } break;
     }
 

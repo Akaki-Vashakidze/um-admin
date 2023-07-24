@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute } from '@angular/router';
 import { UmService } from 'src/app/modules/um/service/um.service';
@@ -19,7 +19,7 @@ export class ApplicationClientsComponent implements OnInit {
   requestBody = {
     data: {
       searchQuery: '',
-      applicationId: null,
+      clientId: null,
     },
     paging: {
       page: 0,
@@ -27,29 +27,39 @@ export class ApplicationClientsComponent implements OnInit {
     }
   }
 
-  constructor(private breadcrumbService: BreadcrumbService,private _umService: UmService, private _activatedRoute: ActivatedRoute) {
+  constructor(private breadcrumbService: BreadcrumbService, private _umService: UmService, private _activatedRoute: ActivatedRoute) {
     this._activatedRoute.params.subscribe((param: any) => {
-      if (param.applicationId) {
-        this.requestBody.data.applicationId = param.applicationId;
+      if (param.clientId) {
+        this.requestBody.data.clientId = param.clientId;
         this.getClients();
+      }
+      if (param.clientId == 'emptyCard') {
+        this.tableData = null;
       }
     })
   }
 
   ngOnInit(): void {
-    this.breadcrumbService.set('@Apps','აპლიკაციის კლიენტები');
+    this.breadcrumbService.set('@Apps', '>');
   }
 
   async getClients() {
-    const { data, page } = await this._umService.getAppClients(this.requestBody)
-    this.tableData = data
-    this.paging.length = page.length
-    this.paging.pageSize = page.pageSize
-    this.paging.pageIndex = page.pageIndex
+    const res = await this._umService.getAppClients(this.requestBody)
+    if (res) {
+      this.tableData = res.data
+      this.paging.length = res.page.length
+      this.paging.pageSize = res.page.pageSize
+      this.paging.pageIndex = res.page.pageIndex
+    }
+
+    if (this.tableData) {
+      this.breadcrumbService.set('@Apps', 'აპლიკაციის კლიენტები');
+    } else {
+      this.breadcrumbService.set('@Apps', '>');
+    }
   }
 
   search(item: any) {
-
     this.requestBody.data.searchQuery = item.value;
     this.getClients()
   }
