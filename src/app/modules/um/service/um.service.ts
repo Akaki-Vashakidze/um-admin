@@ -28,6 +28,20 @@ export class UmService {
       })))
   }
 
+
+  async getClientsList(item: any, paging: any) {
+    let data = { 'data': item, 'paging': paging }
+    //todo show loader
+    return firstValueFrom<any>(this._http.post<any>("/api/um/v1/applications/search", data)
+      .pipe(map(res => {
+        if (res.result) {
+          return res.result
+        } else return null;
+      }), finalize(() => {
+        //todo hide loader
+      })))
+  }
+
   async getAppClients(requestBody: any) {
     return firstValueFrom<any>(this._http.post<any>("/api/um/v1/applications/clients/search", requestBody).pipe(map(res => {
       if (res.result) {

@@ -23,7 +23,7 @@ const routes: Routes = [
       {
         path: 'clients',
         loadChildren: () => import('../um/modules/clients/clients.module').then(m => m.ClientsModule),
-        data: { breadcrumb: { skip: true } }
+        data: { breadcrumb: { alias: 'Client' } },
       },
       // {
       //   path: 'users',

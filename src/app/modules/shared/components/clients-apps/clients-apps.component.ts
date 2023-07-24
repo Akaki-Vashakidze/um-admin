@@ -28,19 +28,23 @@ export class ClientsAppsComponent implements OnInit {
   getList() {
     switch (this.type) {
       case AppsClientsType.APPS: {
-        this.loadClientList();
+        this.loadAppsList();
       } break;
 
       case AppsClientsType.CLIENTS: {
-        //todo load clients
+       this.loadClientsList();
       } break;
     }
   }
 
 
-  async loadClientList(): Promise<void> {
+  async loadAppsList(): Promise<void> {
     const { data, page } = await this._umService.getAppsList({}, { 'page': this.paging.pageIndex, 'size': this.paging.pageSize })
+    this.listData = data.map((d: any) => ({ value: d.id, title: d.name }));
+  }
 
+  async loadClientsList(): Promise<void> {
+    const { data, page } = await this._umService.getClientsList({}, { 'page': this.paging.pageIndex, 'size': this.paging.pageSize })
     this.listData = data.map((d: any) => ({ value: d.id, title: d.name }));
   }
 

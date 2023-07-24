@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UmService } from '../../../../service/um.service';
 import { PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
   selector: 'app-client-applications',
@@ -25,17 +26,26 @@ export class ClientApplicationsComponent implements OnInit {
       size: 10
     }
   }
-  constructor(private _umService: UmService, private _activatedRoute: ActivatedRoute) {
-    this._activatedRoute.params.subscribe((param: any) => {
-      if (param.applicationId) {
-        this.requestBody.data.applicationId = param.applicationId;
-        this.getClients();
-      }
-    })
+  constructor(private _umService: UmService, private _activatedRoute: ActivatedRoute,private breadcrumbService: BreadcrumbService) {
+    // this._activatedRoute.params.subscribe((param: any) => {
+    //   if (param.applicationId) {
+    //     this.requestBody.data.applicationId = param.applicationId;
+    //     this.getClients();
+    //   }
+    // })
   }
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.breadcrumbService.set('@Clients', '>');
+    this._activatedRoute.params.subscribe((param: any) => {
+      if (param.applicationId) {
+       this.requestBody.data.applicationId = param.applicationId;
+        this.getClients();
+      }
+      if (param.applicationId == 'emptyCard') {
+        this.tableData = null;
+      }
+    })
   }
 
   async getClients() {

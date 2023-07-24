@@ -8,11 +8,18 @@ const routes: Routes = [
     path: '',
     component: ClientsComponent,
     children: [
-      { path: 'clients/:applicationId', component: ClientApplicationsComponent }
+      {
+        path:'',
+        redirectTo:'clients/emptyCard',
+        pathMatch:'full',
+      },
+      { path: 'clients/:applicationId',
+       component: ClientApplicationsComponent,
+       data: { breadcrumb: { alias: 'Clients' } }
+      }
     ]
   },
 ]
-
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
