@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BreadcrumbModule } from 'xng-breadcrumb';
 import { BreadcrumbService } from 'xng-breadcrumb';
+import { ErrorInterceptor } from './services/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,11 @@ import { BreadcrumbService } from 'xng-breadcrumb';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
       multi: true
     }
   ],

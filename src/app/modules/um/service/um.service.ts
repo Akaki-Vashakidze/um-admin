@@ -17,28 +17,24 @@ export class UmService {
 
   async getAppsList(item: any, paging: any) {
     let data = { 'data': item, 'paging': paging }
-    //todo show loader
     return firstValueFrom<any>(this._http.post<any>("/api/um/v1/applications/search", data)
       .pipe(map(res => {
         if (res.result) {
           return res.result
-        } else return null;
+        } else return res.errors;
       }), finalize(() => {
-        //todo hide loader
       })))
   }
 
 
   async getClientsList(item: any, paging: any) {
     let data = { 'data': item, 'paging': paging }
-    //todo show loader
     return firstValueFrom<any>(this._http.post<any>("/api/um/v1/applications/search", data)
       .pipe(map(res => {
         if (res.result) {
           return res.result
         } else return null;
       }), finalize(() => {
-        //todo hide loader
       })))
   }
 
@@ -48,7 +44,6 @@ export class UmService {
         return res.result
       } else return null;
     }), finalize(() => {
-      //todo hide loader
     })))
   }
 
