@@ -22,7 +22,6 @@ export class ReusableTableComponent implements OnInit, AfterViewInit, OnChanges 
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.tableData)
     this.dataSource = new MatTableDataSource(this.tableData);
   }
 

@@ -2,16 +2,17 @@ import { Injectable } from '@angular/core';
 import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Observable, catchError, finalize, tap, throwError } from 'rxjs';
 import { Router } from '@angular/router';
+import { LoadingService } from '../modules/shared/loading/loading.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TokenInterceptorService implements HttpInterceptor {
 
-  constructor(private _router: Router) { }
+  constructor(private _router: Router, private loadingService: LoadingService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): any {
-    
+    this.loadingService.start();
     let tokenizedRequest = req.clone({
       setHeaders: {
         'x-access-token': localStorage.getItem('x-access-token') || ''
@@ -33,7 +34,9 @@ export class TokenInterceptorService implements HttpInterceptor {
             this._router.navigate(['/auth/login'])
           }
           return throwError(error.error)
-        })
-      )
+        }),
+        finalize(() => {
+          this.loadingService.stop();
+        }))
   }
 }

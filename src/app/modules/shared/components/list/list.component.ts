@@ -4,6 +4,7 @@ import { PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UmService } from 'src/app/modules/um/service/um.service';
 import { BreadcrumbService } from 'xng-breadcrumb';
+import { LoadingService } from '../../loading/loading.service';
 
 @Component({
   selector: 'app-list',
@@ -16,8 +17,9 @@ export class ListComponent implements OnInit {
   users = ['user 1', 'user 2', 'user 3', 'user 4', 'user 5', 'user 6', 'user 7',]
   columns = ['id', 'სახელი', 'აღწერა', 'keyword', 'actions']
   listData: any;
+  loading!:boolean;
 
-  constructor(private breadcrumbService: BreadcrumbService,private _umService: UmService, private _activatedRoute: ActivatedRoute, private _router: Router) { }
+  constructor(private _loadingService:LoadingService,private breadcrumbService: BreadcrumbService,private _umService: UmService, private _activatedRoute: ActivatedRoute, private _router: Router) { }
   dataType!: string;
   type!: string;
   paging = { length: 5, pageSize: 10, pageIndex: 0 }
@@ -29,6 +31,9 @@ export class ListComponent implements OnInit {
   searchQuery:string = ''
 
   async ngOnInit() {
+    this._loadingService.loading.subscribe((loading) => {
+      this.loading = loading
+    })
     this.dataType = this._activatedRoute.snapshot.params['type']
     if (this.dataType == 'apps') {
       let response = await this._umService.getAppsList({}, { 'page': this.paging.pageIndex, 'size': this.paging.pageSize })

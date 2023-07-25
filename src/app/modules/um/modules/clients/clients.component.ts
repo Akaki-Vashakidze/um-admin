@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppsClientsType } from 'src/app/modules/shared/classes/enums';
+import { LoadingService } from 'src/app/modules/shared/loading/loading.service';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
@@ -8,11 +9,14 @@ import { BreadcrumbService } from 'xng-breadcrumb';
   styleUrls: ['./clients.component.scss']
 })
 export class ClientsComponent implements OnInit {
-
-  constructor(private breadcrumbService: BreadcrumbService) { }
+  loading!:boolean;
+  constructor(private breadcrumbService: BreadcrumbService,private _loadingService:LoadingService) { }
 
   ngOnInit(): void {
-    this.breadcrumbService.set('@Client', 'კლიენტები');
+    this.breadcrumbService.set('@Client', 'კლიენტები'); 
+       this._loadingService.loading.subscribe((loading) => {
+      this.loading = loading
+    })
   }
 
   get type() {

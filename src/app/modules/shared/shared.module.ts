@@ -8,7 +8,8 @@ import { ListComponent } from './components/list/list.component';
 import { ReusableTableComponent } from './components/reusable-table/reusable-table.component';
 import { UmRoutingModule } from '../um/um-routing.module';
 import { ClientsAppsComponent } from './components/clients-apps/clients-apps.component';
-
+import { LoadingService } from './loading/loading.service';
+import { NgxLoadingModule } from 'ngx-loading';
 
 @NgModule({
   declarations: [
@@ -18,11 +19,13 @@ import { ClientsAppsComponent } from './components/clients-apps/clients-apps.com
     ListComponent,
     ReusableTableComponent,
     ClientsAppsComponent,
+    
   ],
   imports: [
     CommonModule,
     MaterialModule,
-    UmRoutingModule
+    UmRoutingModule,
+    NgxLoadingModule
   ],
   exports:[
     MaterialModule,
@@ -30,7 +33,11 @@ import { ClientsAppsComponent } from './components/clients-apps/clients-apps.com
     ClientsComponent,
     SettingsCardComponent,
     ClientsAppsComponent,
-    ReusableTableComponent
+    ReusableTableComponent,
+    NgxLoadingModule
+  ],
+  providers:[
+    LoadingService
   ]
 })
 export class SharedModule { }

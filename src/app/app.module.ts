@@ -16,7 +16,7 @@ import { BreadcrumbService } from 'xng-breadcrumb';
   declarations: [
     AppComponent,
   ],
-  imports: [
+  imports: [ 
     BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,

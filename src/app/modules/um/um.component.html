@@ -2,5 +2,8 @@
 <xng-breadcrumb [separator]="iconTemplate"></xng-breadcrumb>
 <ng-template #iconTemplate>
     <mat-icon>navigate_next</mat-icon>
-  </ng-template>
-<router-outlet></router-outlet>
+</ng-template>
+
+<ngx-loading [show]="loading" [config]="{ fullScreenBackdrop: true }"></ngx-loading>
+<router-outlet>
+</router-outlet>
