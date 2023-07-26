@@ -14,10 +14,10 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subscripton = this._loadingService.loading.subscribe((loading) => {
-      this.loading = loading
+      // this.loading = loading
     })
   }
-
+  
   ngOnDestroy(): void {
     this.subscripton.unsubscribe()
   }

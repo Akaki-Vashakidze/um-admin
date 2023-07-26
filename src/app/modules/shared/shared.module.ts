@@ -10,6 +10,8 @@ import { UmRoutingModule } from '../um/um-routing.module';
 import { ClientsAppsComponent } from './components/clients-apps/clients-apps.component';
 import { LoadingService } from './loading/loading.service';
 import { NgxLoadingModule } from 'ngx-loading';
+import { AlertComponent } from './components/alert/alert.component';
+import { ConfirmComponent } from './components/confirm/confirm.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { NgxLoadingModule } from 'ngx-loading';
     ListComponent,
     ReusableTableComponent,
     ClientsAppsComponent,
-    
+    AlertComponent,
+    ConfirmComponent
   ],
   imports: [
     CommonModule,

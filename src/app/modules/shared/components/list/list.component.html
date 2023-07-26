@@ -21,7 +21,9 @@
     <mat-card class="card2">
         <mat-icon *ngIf="!tableData" class="clickSearch">search</mat-icon>
         <div  *ngIf="!tableData" class="clickClient">აპლიკაციის სანახავად გთხოვთ მონიშნოთ ერთი კლიენტი</div>
-        <router-outlet></router-outlet>
+        <router-outlet>
+            <ngx-loading [show]="loading" [config]="{ fullScreenBackdrop: true }"></ngx-loading>
+        </router-outlet>
         <app-reusable-table [pageSizeOptions]="pageSizeOptions" (search)="search($event)" (pageChange)="pageChange($event)" [paging]="paging" [tableHeaders]="tableHeaders" [tableColumns]="tableColumns"
         [tableData]="tableData"></app-reusable-table>
     </mat-card>

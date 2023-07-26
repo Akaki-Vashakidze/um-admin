@@ -13,7 +13,7 @@ export class LoadingService {
     this.loadSrc.next(true)
   }
 
-  stop(){
+  stop() {
     this.loadSrc.next(false);
   }
 }

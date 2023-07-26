@@ -39,7 +39,7 @@ export class ClientApplicationsComponent implements OnInit {
     this.breadcrumbService.set('@Clients', '>');
     this._activatedRoute.params.subscribe((param: any) => {
       if (param.applicationId) {
-       this.requestBody.data.applicationId = param.applicationId;
+        this.requestBody.data.applicationId = param.applicationId;
         this.getClients();
       }
       if (param.applicationId == 'emptyCard') {

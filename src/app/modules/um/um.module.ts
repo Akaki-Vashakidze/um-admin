@@ -16,7 +16,7 @@ import { BreadcrumbModule } from 'xng-breadcrumb';
     UmRoutingModule,
     CommonModule,
     SharedModule,
-    BreadcrumbModule
+    BreadcrumbModule,
   ],
   exports:[
     SharedModule
