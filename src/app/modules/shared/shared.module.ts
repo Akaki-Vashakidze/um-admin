@@ -12,9 +12,13 @@ import { LoadingService } from './loading/loading.service';
 import { NgxLoadingModule } from 'ngx-loading';
 import { AlertComponent } from './components/alert/alert.component';
 import { ConfirmComponent } from './components/confirm/confirm.component';
+import { TranslatePipe } from './pipes/translate.pipe';
+import { ShortenPipe } from './pipes/shorten.pipe';
+import { BaseComponent } from './components/base/base.component';
 
 @NgModule({
   declarations: [
+    ShortenPipe,
     HeaderComponent,
     ClientsComponent,
     SettingsCardComponent,
@@ -22,7 +26,9 @@ import { ConfirmComponent } from './components/confirm/confirm.component';
     ReusableTableComponent,
     ClientsAppsComponent,
     AlertComponent,
-    ConfirmComponent
+    ConfirmComponent,
+    TranslatePipe,
+    BaseComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +43,10 @@ import { ConfirmComponent } from './components/confirm/confirm.component';
     SettingsCardComponent,
     ClientsAppsComponent,
     ReusableTableComponent,
-    NgxLoadingModule
+    NgxLoadingModule,
+    BaseComponent,
+    TranslatePipe,
+    ShortenPipe
   ],
   providers:[
     LoadingService
